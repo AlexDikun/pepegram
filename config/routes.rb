@@ -3,10 +3,9 @@ Rails.application.routes.draw do
 
   root to: "public#home"
 
-  get 'public/home'
-  get 'public/help'
-  get 'public/about'
-  get 'public/contact'
+  get 'home' => 'public#home'
+  get 'help' => 'public#help'
+  get 'about' => 'public#about'
+  get 'contact' => 'public#contact'
 
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
