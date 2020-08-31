@@ -18,6 +18,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'rubocop', '~> 0.89.1', require: false
 gem 'rubocop-rails', '~> 2.7', '>= 2.7.1', require: false
 
+gem 'bcrypt', '3.1.15'
+
 group :development, :test do
   gem 'rspec-rails', '~> 4.0', '>= 4.0.1'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
