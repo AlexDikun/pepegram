@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :accounts
-
+  resources :posts
   # get "/profile" => "accounts#index"
 
   root to: "public#home"
