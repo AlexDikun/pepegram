@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   validates :title, presence: true, length:{ maximum: 300 }
   validates :body, presence: true
-  
+
   def index
     @post = Post.all
   end
@@ -15,7 +15,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(params.require(:post).permit(:content, :likes))
+    @post = Post.new(params.require(:post).permit(:title, :body))
     if post.save
       redirect_to post, flash: {success: "Post was added"}
     else
@@ -27,9 +27,9 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
-  def create
+  def update
     @post = Post.find(params[:id])
-    @post = Post.update(params.require(:post).permit(:content, :likes))
+    @post = Post.update(params.require(:post).permit(:title, :body))
     redirect_to post, flash: {success: "Post was updated"}
   end
 
@@ -37,6 +37,10 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
     redirect_to action: :index
+  end
+
+  def post_params
+    params.require(:post).permit(:title, :message, :image)
   end
 
 end
