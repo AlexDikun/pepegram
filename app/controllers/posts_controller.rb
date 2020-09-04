@@ -1,13 +1,14 @@
 class PostsController < ApplicationController
-  validates :title, presence: true, length:{ maximum: 300 }
-  validates :body, presence: true
+  before_action :authentificate_account, only: [:new, :create, :edit, :update,
+                                                                      :destroy]
+  before_action :load_account
 
   def index
-    @post = Post.all
+    @posts = @acc.posts
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = @acc.posts.find(params[:id])
   end
 
   def new
@@ -16,15 +17,16 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(params.require(:post).permit(:title, :body))
+    @post.account = @acc
     if post.save
-      redirect_to post, flash: {success: "Post was added"}
+      redirect_to account_post_path(@acc, @post), flash: {success: "Post was added"}
     else
-      render :new flash: {alert: "Some error occured"}
+      render :new, flash: {alert: "Some error occured"}
     end
   end
 
   def edit
-    @post = Post.find(params[:id])
+    @post = @acc.posts.find(params[:id])
   end
 
   def update
@@ -41,6 +43,12 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :message, :image)
+  end
+
+  private
+
+  def load_account
+    @acc = Account.find(params[:accoint_id])
   end
 
 end
