@@ -1,4 +1,4 @@
-<%form_with(model: post,local: true) do |form| %>
+<%= form_with(model: [@acc, @post], local: true) do |form| %>
   <%if post.errors.any?%>
     <div id="errors_explanations">
       <h2><%= pluralize(post.errors.count, "error")%>prohibited this post form being saved</h2>
@@ -6,6 +6,7 @@
       <u1>
         <% if post.errors.full_messages.each do |message|%>
           <li><%= message %></li>
+        <% end %>
         <% end %>
       </u1>
     </div>
@@ -23,7 +24,7 @@
 
   <div class="field">
     <%= form.hidden_field :image, value: @post.cached_image_data%> %>
-    <%= form.title_field :image %>
+    <%= form.file_field :image %>
   </div>
 
   <div class="actions">

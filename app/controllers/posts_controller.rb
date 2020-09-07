@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authentificate_account, only: [:new, :create, :edit, :update,
+  before_action :authenticate_account!, only: [:new, :create, :edit, :update,
                                                                       :destroy]
   before_action :load_account
 
@@ -18,7 +18,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(params.require(:post).permit(:title, :body))
     @post.account = @acc
-    if post.save
+    if @post.save
       redirect_to account_post_path(@acc, @post), flash: {success: "Post was added"}
     else
       render :new, flash: {alert: "Some error occured"}
@@ -30,13 +30,13 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post = Post.find(params[:id])
-    @post = Post.update(params.require(:post).permit(:title, :body))
-    redirect_to post, flash: {success: "Post was updated"}
+    @post = @acc.posts.find(params[:id])
+    @post.update(post_params)
+    redirect_to account_post_path(@acc, @post), flash: {success: "Post was updated"}
   end
 
   def destroy
-    @post = Post.find(params[:id])
+    @post = @acc.posts.find(params[:id])
     @post.destroy
     redirect_to action: :index
   end
@@ -48,7 +48,7 @@ class PostsController < ApplicationController
   private
 
   def load_account
-    @acc = Account.find(params[:accoint_id])
+    @acc = Account.find(params[:account_id])
   end
 
 end

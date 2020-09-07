@@ -1,4 +1,5 @@
-<!-- <h1>Post</h1>
+<p id="notice"><%=notice%></p>
+<h1>Post</h1>
 <table>
   <thead>
     <tr>
@@ -8,16 +9,19 @@
   </thead>
 
   <tbody>
-    <%@post.each do |post| %>
+    <%@posts.each do |post| %>
       <tr>
         <td><%= post.title %></td>
         <td><%= post.body %></td>
         <td><%= image_tag post.image_url %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method :delete, data:
-                                              { cofirm: "You are sure?"} %></td>
+        <td><%= link_to 'Show', account_post %></td>
+        <td><%= link_to 'Edit', edit_account_post_path(@acc, @post) %></td>
+        <td><%= link_to 'Destroy', account_post, method: :delete, data: { confirm: "You are sure?"} %></td>
       </tr>
     <% end %>
   </tbody>
--->
+</table>
+
+<br>
+
+<%= link_to "New Post", new_account_post_path%>

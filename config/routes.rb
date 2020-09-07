@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :accounts
-  resources :accounts, only: [] do
+  resources :accounts, only: [:show, :edit, :update] do
     resources :posts
   end
   # get "/profile" => "accounts#index"

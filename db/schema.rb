@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(version: 2020_09_04_122902) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "image_data"
+    t.integer "account_id"
   end
 
+  add_foreign_key "posts", "accounts"
 end
