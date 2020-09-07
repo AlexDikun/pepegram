@@ -1,9 +1,9 @@
 class Account < ApplicationRecord
-  EMAIL_FORMAT = /^(.+)@(.+)$/ #FIX ME
+  EMAIL_FORMAT = /\A[^@\s]+@[^@\s]+\z/
 
   validates :email, presence: true, uniqueness: true
   validates :email, format: { with: EMAIL_FORMAT, message: "Invalid email!"}
-  validates :username, presence: true,
+  validates :username, presence: true
 
   has_many :posts
 
