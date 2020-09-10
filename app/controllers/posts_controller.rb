@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_account!, only: [:new, :create, :edit, :update,
-                                                                      :destroy]
+                                                                     :destroy]
   before_action :load_account
 
   def index
@@ -17,6 +17,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(params.require(:post).permit(:title, :body))
+    # @post = Post.new(post_params)
     @post.account = @acc
     if @post.save
       redirect_to account_post_path(@acc, @post), flash: {success: "Post was added"}

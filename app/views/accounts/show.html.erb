@@ -1,6 +1,7 @@
-<h1>User info</h1>
-Email: <%= @acc.email %>
-<br>
+<div class="center jumbotron">
+<h1>My profile</h1>
 Name: <%= @acc.username %>
+<br>
+Email: <%= @acc.email %>
 <br>
 <%= link_to("Posts", account_posts_path(@acc)) %>
