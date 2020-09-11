@@ -1,3 +1,4 @@
+<div class="center jumbotron">
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -6,12 +7,12 @@
 </p>
 
 <p>
-  <strong>Body</strong>
-  <%= @post.body %>
+  <strong>Author's comment</strong>
+  <%= @post.message %>
 </p>
 
 <p>
-  <strong>Photo:</strong>
+  <strong>Picture:</strong><br>
   <%= image_tag @post.image_url %>
 </p>
 

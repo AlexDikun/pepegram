@@ -16,8 +16,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(params.require(:post).permit(:title, :body))
-    # @post = Post.new(post_params)
+    # @post = Post.new(params.require(:post).permit(:title, :body))
+    @post = Post.new(post_params)
     @post.account = @acc
     if @post.save
       redirect_to account_post_path(@acc, @post), flash: {success: "Post was added"}

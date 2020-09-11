@@ -1,5 +1,6 @@
+<div class="center jumbotron">
 <p id="notice"><%=notice%></p>
-<h1>Post</h1>
+<h1>Your posts, <%= @acc.username%></h1>
 <table>
   <thead>
     <tr>
@@ -12,11 +13,12 @@
     <%@posts.each do |post| %>
       <tr>
         <td><%= post.title %></td>
-        <td><%= post.body %></td>
+        <td><%= post.message %></td>
         <td><%= image_tag post.image_url %></td>
-        <td><%= link_to 'Show', account_post %></td>
-        <td><%= link_to 'Edit', edit_account_post_path(@acc, @post) %></td>
-        <td><%= link_to 'Destroy', account_post, method: :delete, data: { confirm: "You are sure?"} %></td>
+        <td><%= link_to 'Show', account_post_path(@acc, post)%></td>
+        <td><%= link_to 'Edit', edit_account_post_path(@acc, post) %></td>
+        <td><%= link_to 'Destroy', account_post_path(@acc, post), method: :delete, data: { confirm: "You are sure?"} %></td>
+        <td><br></td>
       </tr>
     <% end %>
   </tbody>
