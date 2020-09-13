@@ -1,13 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Account, type: :model do
-=begin
-  context "sign up" do
-    # fix
-    it "valid_password?" do
-      acc = Account.new(encrypted_password: "1234567890")
-      expect(acc.valid_password? "1234567890" ).to true
-    end
-  end
-=end
+
+  subject { build(:account) }
+
+  it { is_expected.to have_many(:posts) }
+  it { is_expected.to validate_presence_of(:username) }
+  it { is_expected.to validate_presence_of(:email) }
+  it { is_expected.to validate_uniqueness_of(:email).ignoring_case_sensitivity }
+  it { is_expected.to have_many(:posts) }
+
 end

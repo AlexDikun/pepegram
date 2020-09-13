@@ -39,6 +39,9 @@ group :test do
   gem 'shoulda-matchers', '~> 4.3'
   gem 'capybara', '>= 2.15'
   gem 'database_cleaner-active_record'
+  gem 'ffaker', '~> 2.17'
+  gem 'factory_bot', '~> 4.8', '>= 4.8.2'
+  gem 'capybara-headless_chrome', '~> 0.6.3'
   # gem 'database_cleaner-redis'
 end
 

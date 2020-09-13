@@ -14,6 +14,7 @@
 #
 ## require 'rspec-rails'
 require 'capybara/rspec'
+require 'factory_bot'
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
@@ -95,5 +96,10 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+
+  # for FactoryBot:
+  config.include FactoryBot::Syntax::Methods
+  # to solve the ArgumentError: "actory not registered: account"
+  config.before(:all) { FactoryBot.reload }
 
 end
