@@ -1,0 +1,9 @@
+<h1>Followers</h1>
+
+<u>
+  <% @followers.each do |follower| %>
+    <li>
+      <%= link_to(follower.email, account_path(follower)) %>
+    </li>
+  <% end %>
+</u>
