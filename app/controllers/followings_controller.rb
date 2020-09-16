@@ -1,7 +1,7 @@
 # app/controllers/followings_controller.rb
 # frozen_string_literal: true
 
-class FollowersController < ApplicationController
+class FollowingsController < ApplicationController
   def index
     @acc = Account.find(params[:account_id])
     @followings = @acc.followings

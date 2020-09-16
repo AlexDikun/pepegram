@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
   devise_for :accounts
-  
+
   resources :accounts, only: [:show, :edit, :update] do
     resources :posts
     resources :followers, only: :index
     resources :followings, only: :index
   end
 
-  resources :follows, only: :create
+  resources :follows, only: [:create, :destroy]
 
   root to: "public#home"
 
