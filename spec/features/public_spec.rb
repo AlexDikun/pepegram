@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.feature "public", :type => :feature do
 
   context "testing the action Home" do
-    it "Is it a toad?" do
+    it 'Is it a toad?' do
       visit 'about'
       # get 'about'
       expect(page).to have_css("img[src*='/assets/pepeinst-324e381c4d28e2dbb" \

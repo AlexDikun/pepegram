@@ -4,7 +4,7 @@ Name: <%= @acc.username %>
 <br>
 Email: <%= @acc.email %>
 <br>
-<%= link_to("Your posts", account_posts_path(@acc)) %>
+<%= link_to('Your posts', account_posts_path(@acc)) %>
 <% if current_account.present? && current_account != @acc %>
-  <%= link_to "Follow", follows_path(following_id: @acc.id), method: :post %>
+  <%= link_to 'Follow', follows_path(following_id: @acc.id), method: :post %>
 <% end %>

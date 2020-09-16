@@ -20,9 +20,9 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.account = @acc
     if @post.save
-      redirect_to account_post_path(@acc, @post), flash: {success: "Post was added"}
+      redirect_to account_post_path(@acc, @post), flash: {success: 'Post was added'}
     else
-      render :new, flash: {alert: "Some error occured"}
+      render :new, flash: {alert: 'Some error occured'}
     end
   end
 
@@ -33,7 +33,7 @@ class PostsController < ApplicationController
   def update
     @post = @acc.posts.find(params[:id])
     @post.update(post_params)
-    redirect_to account_post_path(@acc, @post), flash: {success: "Post was updated"}
+    redirect_to account_post_path(@acc, @post), flash: {success: 'Post was updated'}
   end
 
   def destroy
