@@ -1,3 +1,6 @@
+# app/controllers/accounts_controller.rb
+# frozen_string_literal: true
+
 class AccountsController < ApplicationController
 
   def show

@@ -1,3 +1,6 @@
+# app/controllers/posts_controller.rb
+# frozen_string_literal: true
+
 class PostsController < ApplicationController
   before_action :authenticate_account!, only: [:new, :create, :edit, :update,
                                                                      :destroy]
