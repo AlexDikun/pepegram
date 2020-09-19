@@ -14,11 +14,12 @@ class FollowsController < ApplicationController
   end
 
   def destroy
-    follower_acc = current_account
-    following_acc = Account.find(params[:following_id])
-
-    Follow.destroy(follower: follower_acc, following: following_acc)
-    redirect_to account_path(current_account)
-
+    @follow = Follow.find(params[:id])
+    # @follow = Follow.where('account_id = ? AND follows = ?',
+    #                        current_account.id, params[:account_id])
+    @follow.destroy
+    redirect_to account_path(current_account),
+      flash: {success: 'You have successfully unfollow'}
   end
+
 end
