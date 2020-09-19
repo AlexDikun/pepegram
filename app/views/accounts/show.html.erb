@@ -4,14 +4,18 @@
 <br>
 Email: <%= @acc.email %>
 <br>
-<%= link_to('Your posts', account_posts_path(@acc)) %>
+<%= link_to('Publications', account_posts_path(@acc)) %>
 <br>
-<%= link_to('Your followers', account_followers_path(@acc)) %>
+<%= link_to('Followers', account_followers_path(@acc)) %>
 <br>
 <%= link_to('Followings', account_followings_path(@acc)) %>
 <br>
 <% if current_account.present? && current_account != @acc %>
+  <% unless current_account.followings.include?(@acc) %>
     <h2> You can follow this user: </h2>
     <%= link_to 'Follow', follows_path(following_id: @acc.id), method: :post %>
+  <% else %>
+    <h2> You can unfollow this user: </h2>
     <%= link_to 'Unfollow', follow_path(following_id: @acc.id), method: :delete %>
+  <% end %>
 <% end %>
