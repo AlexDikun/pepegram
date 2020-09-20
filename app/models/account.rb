@@ -1,3 +1,5 @@
+# spec/models/account.rb
+
 class Account < ApplicationRecord
   EMAIL_FORMAT = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   PASSWORD_FORMAT = /\A(?=.*[a-z])(?=.*[\d]).{8,}\z/i
