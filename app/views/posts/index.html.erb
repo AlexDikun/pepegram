@@ -15,6 +15,7 @@
         <td><%= post.title %></td>
         <td><%= post.message %></td>
         <td><%= image_tag post.image_url %></td>
+        <td><br></td>
         <td><%= link_to 'Show', account_post_path(@acc, post)%></td>
         <td><%= link_to 'Edit', edit_account_post_path(@acc, post) %></td>
         <td><%= link_to 'Destroy', account_post_path(@acc, post), method: :delete, data: { confirm: "You are sure?"} %></td>
