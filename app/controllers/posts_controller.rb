@@ -2,8 +2,7 @@
 # frozen_string_literal: true
 
 class PostsController < ApplicationController
-  before_action :authenticate_account!, only: [:new, :create, :edit, :update,
-                                                                     :destroy]
+  before_action :authenticate_account!, only: %i[new create edit update destroy]
   before_action :load_account
 
   def index
@@ -19,13 +18,12 @@ class PostsController < ApplicationController
   end
 
   def create
-    # @post = Post.new(params.require(:post).permit(:title, :body))
     @post = Post.new(post_params)
     @post.account = @acc
     if @post.save
-      redirect_to account_post_path(@acc, @post), flash: {success: 'Post was added'}
+      redirect_to account_post_path(@acc, @post), flash: { success: 'Post was added' }
     else
-      render :new, flash: {alert: 'Some error occured'}
+      render :new, flash: { alert: 'Some error occured' }
     end
   end
 
@@ -36,7 +34,7 @@ class PostsController < ApplicationController
   def update
     @post = @acc.posts.find(params[:id])
     @post.update(post_params)
-    redirect_to account_post_path(@acc, @post), flash: {success: 'Post was updated'}
+    redirect_to account_post_path(@acc, @post), flash: { success: 'Post was updated' }
   end
 
   def destroy
@@ -54,5 +52,4 @@ class PostsController < ApplicationController
   def load_account
     @acc = Account.find(params[:account_id])
   end
-
 end

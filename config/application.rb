@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'boot'
 
 require 'rails/all'
@@ -7,11 +9,12 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 
 module Pepegram
+  # top-level class documentation comment
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
     config.generators.test_framework :rspec
-    # for Heroky: 
+    # for Heroky
     # config.assets.initialize_on_precompile = false
 
     # Settings in config/environments/* take precedence over those specified here.

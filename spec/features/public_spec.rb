@@ -1,8 +1,9 @@
-require "rails_helper"
+# frozen_string_literal: true
 
-RSpec.feature "public", :type => :feature do
+require 'rails_helper'
 
-  context "testing the action Home" do
+RSpec.feature 'public', type: :feature do
+  context 'testing the action Home' do
     it 'Is it a toad?' do
       visit 'about'
       # get 'about'

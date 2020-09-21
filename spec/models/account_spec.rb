@@ -1,4 +1,5 @@
 # spec/models/account_spec.rb
+# frozen_string_literal: true
 
 require 'rails_helper'
 
@@ -15,6 +16,4 @@ RSpec.describe Account, type: :model do
   it { is_expected.to have_many(:followers).through(:follower_follows).source(:follower) }
 
   it { is_expected.to have_many(:following_follows).with_foreign_key(:follower_id).class_name('Follow') }
-  it { is_expected.to have_many(:followings).through(:following_follows).source(:following) }
-
 end
