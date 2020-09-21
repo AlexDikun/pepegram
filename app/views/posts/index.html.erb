@@ -17,8 +17,10 @@
         <td><%= image_tag post.image_url %></td>
         <td><br></td>
         <td><%= link_to 'Show', account_post_path(@acc, post)%></td>
-        <td><%= link_to 'Edit', edit_account_post_path(@acc, post) %></td>
-        <td><%= link_to 'Destroy', account_post_path(@acc, post), method: :delete, data: { confirm: "You are sure?"} %></td>
+        <% if current_account == @acc %>
+          <td><%= link_to 'Edit', edit_account_post_path(@acc, post) %></td>
+          <td><%= link_to 'Destroy', account_post_path(@acc, post), method: :delete, data: { confirm: "You are sure?"} %></td>
+        <% end %>
         <td><br></td>
       </tr>
     <% end %>
@@ -26,5 +28,6 @@
 </table>
 
 <br>
-
-<%= link_to 'New Post', new_account_post_path%>
+<% if current_account == @acc %>
+  <%= link_to 'New Post', new_account_post_path %>
+<% end %>

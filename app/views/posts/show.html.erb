@@ -15,6 +15,7 @@
   <strong>Picture:</strong><br>
   <%= image_tag @post.image_url %>
 </p>
-
-<%= link_to 'Edit', edit_account_post_path(@acc, @post) %>
+<% if current_account == @acc %>
+  <%= link_to 'Edit', edit_account_post_path(@acc, @post) %>
+<% end %>
 <%= link_to 'Back', account_posts_path(@acc) %>
