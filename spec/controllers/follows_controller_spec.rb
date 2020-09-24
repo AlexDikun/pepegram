@@ -4,7 +4,6 @@
 require 'rails_helper'
 
 RSpec.describe FollowsController, type: :controller do
-=begin
   let!(:first_user)  { create :account }
   let!(:second_user) { create :account }
 
@@ -15,7 +14,7 @@ RSpec.describe FollowsController, type: :controller do
     let(:params) do
       {
         follower_id:  first_user.id,
-        following_id: second_user.id
+        following_id: second_user.id,
       }
     end
 
@@ -23,8 +22,8 @@ RSpec.describe FollowsController, type: :controller do
 
     it 'create follow' do
       expect { subject }.to change { Follow.count }.by(1)
-      is_expected.to redirect_to(account_posts_path(assigns(:second_user)))
+      # is_expected.to redirect_to(account_posts_path(assigns(:second_user))) # what do not work?
+      is_expected.to redirect_to(account_posts_path(second_user))
     end
   end
-=end
 end
