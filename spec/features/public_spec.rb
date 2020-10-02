@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
+=begin
 
 RSpec.feature 'public', type: :feature do
   context 'testing the action Home' do
@@ -12,3 +13,5 @@ RSpec.feature 'public', type: :feature do
     end
   end
 end
+
+=end
