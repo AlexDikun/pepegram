@@ -29,5 +29,5 @@
 
 <br>
 <% if current_account == @acc %>
-  <%= link_to 'New Post', new_account_post_path %>
+  <%= link_to 'New Post', new_account_post_path(@acc) %>
 <% end %>

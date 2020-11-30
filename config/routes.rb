@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
 
   resources :follows, only: %i[create destroy]
+  resources :feed_posts, only: :index
 
   root to: 'public#home'
 
