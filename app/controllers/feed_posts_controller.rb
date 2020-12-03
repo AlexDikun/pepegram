@@ -2,11 +2,11 @@ class FeedPostsController < ApplicationController
   before_action :authenticate_account!
 
   def index
+    @acc = current_account
     if current_account.followings.exists?
-      @acc = current_account
       @posts = Post.where(account_id: current_account.followings.pluck(:id)).order(created_at: :desc)
     else
-      Post.none
+      @posts = Post.none
     end
 
     render 'posts/index'
