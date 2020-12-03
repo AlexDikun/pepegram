@@ -1,33 +1,26 @@
-<div class="center jumbotron">
+
 <p id="notice"><%=notice%></p>
 <h1>Your posts, <%= @acc.username %></h1>
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Message</th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <%@posts.each do |post| %>
-      <tr>
-        <td><%= post.title %></td>
-        <td><%= post.message %></td>
-        <td><%= image_tag post.image_url %></td>
-        <td><br></td>
-        <td><%= link_to 'Show', account_post_path(@acc, post)%></td>
-        <% if current_account == @acc %>
-          <td><%= link_to 'Edit', edit_account_post_path(@acc, post) %></td>
-          <td><%= link_to 'Destroy', account_post_path(@acc, post), method: :delete, data: { confirm: "You are sure?"} %></td>
-        <% end %>
-        <td><br></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%@posts.each do |post| %>
+  <form class="center jumbotron">
+    <legend><%= post.title %><</legend>
+      <span class="help-block"><%= post.message %></span>
+      <img src="<%= post.image_url %>" class="img-rounded" width="400" height="400">
+      <br>
+      <br>
+      <button type="submit"><%= link_to 'Show', account_post_path(@acc, post)%></button>
+      <button type="submit"><%= link_to 'Edit', edit_account_post_path(@acc, post)%></button>
+      <button type="submit">
+        <%= link_to 'Destroy', account_post_path(@acc, post), method: :delete, data: { confirm: "You are sure?"}%>
+      </button>
+  </form>
+  <br>
+<% end %>
 
-<br>
 <% if current_account == @acc %>
-  <%= link_to 'New Post', new_account_post_path(@acc) %>
+  <button class="img-responsive center-block" type="submit">
+    <%= link_to 'New Post', new_account_post_path(@acc)%>
+    <br>
+  </button>
 <% end %>
