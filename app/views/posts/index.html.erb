@@ -9,10 +9,16 @@
       <img src="<%= post.image_url %>" class="img-rounded">
       <br>
       <br>
-      <button type="submit"><%= link_to 'Show', account_post_path(@acc, post)%></button>
-      <button type="submit"><%= link_to 'Edit', edit_account_post_path(@acc, post)%></button>
+      <% if policy(post).show? %>
+        <button type="submit"><%= link_to 'Show', account_post_path(@acc, post)%></button>
+      <% end %>
+      <% if policy(post).update? %>
+        <button type="submit"><%= link_to 'Edit', edit_account_post_path(@acc, post)%></button>
+      <% end %>
       <button type="submit">
-        <%= link_to 'Destroy', account_post_path(@acc, post), method: :delete, data: { confirm: "You are sure?"}%>
+        <% if policy(post).destroy? %>
+          <%= link_to 'Destroy', account_post_path(@acc, post), method: :delete, data: { confirm: "You are sure?"}%>
+        <% end %>
       </button>
   </form>
   <br>
