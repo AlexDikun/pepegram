@@ -9,7 +9,9 @@ gem 'bcrypt', '3.1.15'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 gem 'devise', '~> 4.7', '>= 4.7.2'
+# gem 'image_processing', '~> 1.12', '>= 1.12.1'
 gem 'jbuilder', '~> 2.7'
+# gem 'mini_magick', '~> 4.11'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.1'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
@@ -37,11 +39,11 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'capybara-headless_chrome', '~> 0.6.3'
   gem 'database_cleaner-active_record'
-  # gem 'database_cleaner-redis'
+  gem 'database_cleaner-redis'
   gem 'factory_bot', '~> 4.8', '>= 4.8.2'
   gem 'ffaker', '~> 2.17'
   gem 'shoulda-matchers', '~> 4.3'
-  # gem 'selenium-webdriver'
+  gem 'selenium-webdriver'
   gem 'webdrivers'
 end
 

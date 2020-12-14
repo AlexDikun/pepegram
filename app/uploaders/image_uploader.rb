@@ -2,9 +2,13 @@
 # frozen_string_literal: true
 
 # top-level class documentation comment
+
+require "image_processing/mini_magick"
+
 class ImageUploader < Shrine
   plugin :default_url
   plugin :validation_helpers
+  plugin :derivatives
 
   Attacher.default_url do |**options|
     '/placeholders/frogg.jpeg'
