@@ -9,9 +9,7 @@
       <img src="<%= post.image_url %>" class="img-rounded">
       <br>
       <br>
-      <% if policy(post).show? %>
-        <button type="submit"><%= link_to 'Show', account_post_path(@acc, post)%></button>
-      <% end %>
+      <button type="submit"><%= link_to 'Show', account_post_path(@acc, post)%></button>
       <% if policy(post).update? %>
         <button type="submit"><%= link_to 'Edit', edit_account_post_path(@acc, post)%></button>
       <% end %>

@@ -1,14 +1,14 @@
 # app/policies/posts_policy.rb
 
 class PostPolicy
-  attr_reader :user, :post
+  attr_reader :account, :post
 
-  def initialize(user, post)
+  def initialize(account, post)
     @acc = account
     @post = post
   end
 
-  def show?
+  def edit?
     account.posts.where(id: post_id).exists?
   end
 
