@@ -3,8 +3,6 @@
 
 # top-level class documentation comment
 
-require "image_processing/mini_magick"
-
 class ImageUploader < Shrine
   plugin :default_url
   plugin :validation_helpers
