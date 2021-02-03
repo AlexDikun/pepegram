@@ -9,14 +9,14 @@ class PostPolicy
   end
 
   def edit?
-    account.posts.where(id: post_id).exists?
+    @acc.posts.where(id: post.id).exists?
   end
 
   def update?
-    account.posts.where(id: post_id).exists?
+    @acc.posts.where(id: post.id).exists?
   end
 
   def destroy?
-    account.posts.where(id: post_id).exists?
+    @acc.posts.where(id: post.id).exists?
   end
 end

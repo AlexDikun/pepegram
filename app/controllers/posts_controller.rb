@@ -54,6 +54,11 @@ class PostsController < ApplicationController
 
   private
 
+  def pundit_user
+    # Account.find_by_other_means
+    current_account
+  end
+
   def load_account
     @acc = Account.find(params[:account_id])
   end
