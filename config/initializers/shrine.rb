@@ -1,4 +1,4 @@
-# config/shrine.rb
+# config/initializers/shrine.rb
 
 require 'shrine'
 require 'shrine/storage/file_system'
