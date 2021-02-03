@@ -48,11 +48,11 @@ class PostsController < ApplicationController
     redirect_to action: :index
   end
 
+  private
+
   def post_params
     params.require(:post).permit(:title, :message, :image)
   end
-
-  private
 
   def pundit_user
     # Account.find_by_other_means
