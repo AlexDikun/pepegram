@@ -5,6 +5,8 @@ class PostsController < ApplicationController
   before_action :authenticate_account!, only: %i[new create edit update destroy]
   before_action :load_account
 
+  include Pundit
+
   def index
     @posts = @acc.posts
   end
@@ -29,16 +31,19 @@ class PostsController < ApplicationController
 
   def edit
     @post = @acc.posts.find(params[:id])
+    authorize @post
   end
 
   def update
     @post = @acc.posts.find(params[:id])
+    authorize @post
     @post.update(post_params)
     redirect_to account_post_path(@acc, @post), flash: { success: 'Post was updated' }
   end
 
   def destroy
     @post = @acc.posts.find(params[:id])
+    authorize @post
     @post.destroy
     redirect_to action: :index
   end
@@ -48,6 +53,11 @@ class PostsController < ApplicationController
   end
 
   private
+
+  def pundit_user
+    # Account.find_by_other_means
+    current_account
+  end
 
   def load_account
     @acc = Account.find(params[:account_id])

@@ -10,6 +10,5 @@ class CreateFollows < ActiveRecord::Migration[6.0]
 
     add_foreign_key :follows, :accounts, column: :follower_id
     add_foreign_key :follows, :accounts, column: :following_id
-    add_foreign_key :follows, [:follower_id, :following_id], unique: true
   end
 end
