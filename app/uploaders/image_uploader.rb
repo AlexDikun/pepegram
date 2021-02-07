@@ -10,12 +10,8 @@ class ImageUploader < Shrine
   plugin :validation_helpers
   plugin :derivatives
 
-  Attacher.default_url do |**options|
-    '/placeholders/frogg.jpeg'
-  end
-
   Attacher.validate do
-    validate_extension %w[jpg jpeg gif png webp]
+    validate_extension %w[jpg jpeg png webp]
   end
 
   Attacher.derivatives do |original|
@@ -24,4 +20,8 @@ class ImageUploader < Shrine
       medium: magick.resize_to_limit!(500, 500),
     }
   end
+
+  #Attacher.default_url do |**options|
+  #  '/placeholders/frogg.jpeg'
+  #end
 end

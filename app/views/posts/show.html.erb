@@ -13,7 +13,7 @@
 
 <p>
   <strong>Picture:</strong><br>
-  <%= image_tag @post.image_url %>
+  <%= image_tag @post.image_url(:medium) %>
 </p>
 <% if current_account == @acc %>
   <%= link_to 'Edit', edit_account_post_path(@acc, @post) %>

@@ -7,6 +7,7 @@ class Post < ApplicationRecord
 
   validates :title, presence: true, length: { maximum: 100 }
   validates :message, presence: true
+  validates :image_data, presence: true
 
   belongs_to :account
 end
