@@ -22,6 +22,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.account = @acc
+    @post.image_derivatives!
     if @post.save
       redirect_to account_post_path(@acc, @post), flash: { success: 'Post was added' }
     else

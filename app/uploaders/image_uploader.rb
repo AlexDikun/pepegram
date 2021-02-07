@@ -3,6 +3,8 @@
 
 # top-level class documentation comment
 
+require "image_processing/mini_magick"
+
 class ImageUploader < Shrine
   plugin :default_url
   plugin :validation_helpers
@@ -13,6 +15,13 @@ class ImageUploader < Shrine
   end
 
   Attacher.validate do
-    validate_extension %w[jpg jpeg gif png svg webp]
+    validate_extension %w[jpg jpeg gif png webp]
+  end
+
+  Attacher.derivatives do |original|
+    magick = ImageProcessing::MiniMagick.source(original)
+    {
+      medium: magick.resize_to_limit!(500, 500),
+    }
   end
 end
