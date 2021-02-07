@@ -6,7 +6,7 @@
   <form class="center jumbotron">
     <legend><%= post.title %></legend>
       <span class="help-block"><%= post.message %></span>
-      <img src="<%= post.image_url %>" class="img-rounded">
+      <img src="<%= post.image_url(:medium) %>" class="img-rounded">
       <br>
       <br>
       <button type="submit"><%= link_to 'Show', account_post_path(@acc, post)%></button>

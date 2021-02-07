@@ -9,7 +9,7 @@ gem 'bcrypt', '3.1.15'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 gem 'devise', '~> 4.7', '>= 4.7.2'
-# gem 'image_processing', '~> 1.12', '>= 1.12.1'
+gem 'image_processing', '~> 1.12', '>= 1.12.1'
 gem 'jbuilder', '~> 2.7'
 # gem 'mini_magick', '~> 4.11'
 gem 'pundit', '~> 2.1'

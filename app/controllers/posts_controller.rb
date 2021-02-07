@@ -22,6 +22,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.account = @acc
+    @post.image_derivatives! if @post.valid?
     if @post.save
       redirect_to account_post_path(@acc, @post), flash: { success: 'Post was added' }
     else
@@ -48,11 +49,11 @@ class PostsController < ApplicationController
     redirect_to action: :index
   end
 
+  private
+
   def post_params
     params.require(:post).permit(:title, :message, :image)
   end
-
-  private
 
   def pundit_user
     # Account.find_by_other_means
