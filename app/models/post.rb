@@ -10,4 +10,5 @@ class Post < ApplicationRecord
   validates :image_data, presence: true
 
   belongs_to :account
+  has_many :comments, dependent: :destroy
 end

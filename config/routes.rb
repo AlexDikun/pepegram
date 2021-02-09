@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   resources :follows, only: %i[create destroy]
   resources :feed_posts, only: :index
+  resources :comments
 
   root to: 'public#home'
 
