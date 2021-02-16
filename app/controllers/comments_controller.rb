@@ -5,6 +5,8 @@ class CommentsController < ApplicationController
   before_action :authenticate_account!, only: %i[new create destroy]
   before_action :load_post
 
+  include Pundit
+
   def new
     @comment = Comment.new
   end
@@ -22,11 +24,16 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = @post.comments.find(params[:id])
+    authorize @comment
     @comment.destroy
     redirect_to account_post_path(@post.account, @post)
   end
 
   private
+
+  def pundit_user
+    current_account
+  end
 
   def load_post
     @post = Post.find(params[:post_id])
