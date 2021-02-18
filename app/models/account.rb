@@ -3,6 +3,8 @@
 
 # class describing the account model
 class Account < ApplicationRecord
+  devise :database_authenticatable, :registerable
+  
   EMAIL_FORMAT = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   PASSWORD_FORMAT = /\A(?=.*[a-z])(?=.*[\d]).{8,}\z/i
 
@@ -14,12 +16,11 @@ class Account < ApplicationRecord
                                  message: 'Invalid password!' }
 
   has_many :posts
+  has_many :comments, dependent: :destroy
 
   has_many :follower_follows, foreign_key: :following_id, class_name: 'Follow'
   has_many :followers, through: :follower_follows, source: :follower
 
   has_many :following_follows, foreign_key: :follower_id, class_name: 'Follow'
   has_many :followings, through: :following_follows, source: :following
-
-  devise :database_authenticatable, :registerable
 end
