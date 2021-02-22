@@ -25,13 +25,13 @@ RSpec.describe AccountsController, type: :controller do
 
     it 'assigns server policy' do
       subject
-      expect(assings(:acc)).to eq(user)
+      expect(assigns(:acc)).to eq(user)
     end
   end
 
   describe 'update' do
     let!(:user) { create :account }
-    let(:params) { { id: user.id, user: { username: 'Navalny' } } }
+    let(:params) { { id: user.id, account: { username: 'Navalny' } } }
 
     subject { process :update, method: :put, params: params }
 
@@ -42,7 +42,9 @@ RSpec.describe AccountsController, type: :controller do
     end
 
     context 'with bad params' do
-      let(:params) { { id: user.id, user: { username: ' ' } } }
+      let(:params) { { id: user.id, account: { username: ' ' } } }
+
+      it { is_expected.to render_template(:edit) }
 
       it 'does not update account' do
         expect { subject }.not_to change { user.reload.username }

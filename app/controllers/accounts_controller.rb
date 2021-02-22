@@ -12,7 +12,7 @@ class AccountsController < ApplicationController
 
   def update
     @acc = Account.find(params[:id])
-    if account.update(account_update_params)
+    if @acc.update(account_update_params)
       redirect_to account_path(@acc)
     else
       render :edit
