@@ -68,7 +68,7 @@ RSpec.describe PostsController, type: :controller do
 
     it 'create post' do
       expect { subject }.to change { Post.count }.by(1)
-      is_expected.to redirect_to(account_post_path(assigns(:account), assigns(:post)))
+      is_expected.to redirect_to(account_post_path(assigns(:acc), assigns(:post)))
     end
 
     context 'when params invalid' do
@@ -85,6 +85,8 @@ RSpec.describe PostsController, type: :controller do
   end
 
   describe 'destroy' do
+    let!(:account) { create :account }
+    before { sign_in account }
     let!(:post) { create :post, account: account }
     let(:params) { { account_id: account.id, id: post.id } }
 
@@ -92,7 +94,7 @@ RSpec.describe PostsController, type: :controller do
 
     it 'destroy post' do
       expect { subject }.to change { Post.count }.by(-1)
-      is_expected.to redirect_to(account_post_path(assigns(:account), assigns(:post)))
+      is_expected.to redirect_to(account_posts_path(assigns(:acc)))
     end
   end
 end
