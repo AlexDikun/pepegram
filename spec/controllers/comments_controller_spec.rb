@@ -63,7 +63,7 @@ RSpec.describe CommentsController, type: :controller do
 
     it 'destroy comment' do
       expect { subject }.to change { Comment.count }.by(-1)
-      is_expected.to redirect_to(account_post_path(first_user, post))
+      is_expected.to redirect_to(account_post_path(post.account, assigns(:post)))
     end
   end
 end

@@ -69,6 +69,9 @@ RSpec.configure do |config|
   ## recommendations from github
   config.include Devise::Test::ControllerHelpers, type: :view
   config.include Devise::Test::ControllerHelpers, type: :controller
+
+  # for login_us
+  config.include Warden::Test::Helpers
 end
 
 require 'shoulda/matchers'
