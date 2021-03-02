@@ -5,10 +5,10 @@ class FollowsController < ApplicationController
   before_action :authenticate_account!
 
   def create
-    following_acc = Account.find(params[:following_id])
+    @following_acc = Account.find(params[:following_id])
 
-    Follow.create(follower: current_account, following: following_acc)
-    redirect_to account_posts_path(following_acc), flash: { success: 'You have successfully subscribed' }
+    Follow.create(follower: current_account, following: @following_acc)
+    redirect_to account_posts_path(@following_acc), flash: { success: 'You have successfully subscribed' }
   end
 
   def destroy

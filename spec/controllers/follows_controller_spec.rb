@@ -17,8 +17,7 @@ RSpec.describe FollowsController, type: :controller do
 
     it 'create follow' do
       expect { subject }.to change { Follow.count }.by(1)
-      # is_expected.to redirect_to(account_posts_path(assigns(:second_user))) # what do not work?
-      is_expected.to redirect_to(account_posts_path(second_user))
+      is_expected.to redirect_to(account_posts_path(assigns(:following_acc)))
     end
   end
 
@@ -30,7 +29,7 @@ RSpec.describe FollowsController, type: :controller do
 
     it 'destroy follow' do
       expect { subject }.to change { Follow.count }.by(-1)
-      is_expected.to redirect_to(account_path(first_user))
+      is_expected.to redirect_to(account_path(assigns(:current_account)))
     end
   end
 end
