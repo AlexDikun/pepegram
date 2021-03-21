@@ -18,6 +18,8 @@
 <% if current_account == @acc %>
   <%= link_to 'Edit', edit_account_post_path(@acc, @post) %>
 <% end %>
+<%= link_to 'Like', post_likes_path(@post), method: :post %>
+Likes: <%= @post.likes.count %>
 <%= link_to 'Back', account_posts_path(@acc) %>
 <br>
 
