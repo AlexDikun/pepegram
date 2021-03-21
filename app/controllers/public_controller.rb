@@ -9,4 +9,8 @@ class PublicController < ApplicationController
   def about; end
 
   def contact; end
+
+  def list
+    @accounts = Account.all
+  end
 end
