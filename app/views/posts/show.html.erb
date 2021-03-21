@@ -18,8 +18,15 @@
 <% if current_account == @acc %>
   <%= link_to 'Edit', edit_account_post_path(@acc, @post) %>
 <% end %>
-<%= link_to 'Like', post_likes_path(@post), method: :post %>
+
+<% pre_like = @post.likes.find {| like | like.account_id == current_account.id} %>
+<% if pre_like %>
+  <%= link_to 'Unlike', post_like_path(@post, pre_like), method: :delete %>
+<% else %>
+  <%= link_to 'Like', post_likes_path(@post), method: :post %>
+<% end %>
 Likes: <%= @post.likes.count %>
+
 <%= link_to 'Back', account_posts_path(@acc) %>
 <br>
 

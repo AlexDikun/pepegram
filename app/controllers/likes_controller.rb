@@ -5,19 +5,22 @@ class LikesController < ApplicationController
   before_action :load_post
 
   def create
-    if already_liked?
-      #flash: { notice: "You can't like more than once" }
-      flash[:notice] = "You can't like more than once"
-    else
+    if no_like?
       @post.likes.create(account_id: current_account.id)
       redirect_to account_post_path(@post.account, @post)
     end
   end
 
+  def destroy
+    @like = @post.likes.find(params[:id])
+    @like.destroy
+    redirect_to account_post_path(@post.account, @post)
+  end
+
   private
 
-  def already_liked?
-    Like.where(account_id: current_account.id, post_id: @post.id).exists?
+  def no_like?
+    Like.where(account_id: current_account.id, post_id: @post.id).empty?
   end
 
   def load_post
