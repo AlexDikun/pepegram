@@ -56,7 +56,6 @@ class PostsController < ApplicationController
   end
 
   def pundit_user
-    # Account.find_by_other_means
     current_account
   end
 
