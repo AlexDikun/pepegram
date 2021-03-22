@@ -11,6 +11,7 @@ class Account < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :email, format: { with: EMAIL_FORMAT, message: 'Invalid email!' }
   validates :username, presence: true, length: { maximum: 30 }
+  validates :bio, presence: true, length: { maximum: 1000 }, on: :create
   validates :password, presence: true, length: { minimum: 8 }, on: :create
   validates :password, format: { with: PASSWORD_FORMAT,
                                  message: 'Invalid password!' }, on: :create

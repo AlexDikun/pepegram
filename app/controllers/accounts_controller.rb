@@ -22,6 +22,6 @@ class AccountsController < ApplicationController
   private
 
   def account_update_params
-    params.require(:account).permit(:username)
+    params.require(:account).permit(:username, :bio)
   end
 end
