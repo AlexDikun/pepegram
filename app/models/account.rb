@@ -5,6 +5,8 @@
 class Account < ApplicationRecord
   devise :database_authenticatable, :registerable
 
+  include ImageUploader::Attachment(:avatar)
+
   EMAIL_FORMAT = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   PASSWORD_FORMAT = /\A(?=.*[a-z])(?=.*[\d]).{8,}\z/i
 

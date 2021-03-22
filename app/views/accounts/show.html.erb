@@ -6,6 +6,8 @@ Email: <%= @acc.email %>
 <br>
 Bio: <%= @acc.bio %>
 <br><br>
+<img src="<%= @acc.avatar_url %>" class="img-circle">
+<br><br>
 <button> <%= link_to('Update profile', edit_account_path(@acc)) %> </button>
 <button> <%= link_to('Feed', feed_posts_path) %> </button>
 <button> <%= link_to('Publications', account_posts_path(@acc)) %> </button>
