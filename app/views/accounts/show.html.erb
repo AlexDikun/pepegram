@@ -5,23 +5,18 @@
 Email: <%= @acc.email %>
 <br>
 Bio: <%= @acc.bio %>
-<br>
-<%= link_to('Update profile', edit_account_path(@acc)) %>
-<br>
-<%= link_to('Feed', feed_posts_path) %>
-<br>
-<%= link_to('Publications', account_posts_path(@acc)) %>
-<br>
-<%= link_to('Followers', account_followers_path(@acc)) %>
-<br>
-<%= link_to('Followings', account_followings_path(@acc)) %>
-<br>
+<br><br>
+<button> <%= link_to('Update profile', edit_account_path(@acc)) %> </button>
+<button> <%= link_to('Feed', feed_posts_path) %> </button>
+<button> <%= link_to('Publications', account_posts_path(@acc)) %> </button>
+<button> <%= link_to('Followers', account_followers_path(@acc)) %> </button>
+<button> <%= link_to('Followings', account_followings_path(@acc)) %> </button>
 <% if current_account.present? && current_account != @acc %>
   <% unless current_account.followings.include?(@acc) %>
     <h2> You can follow this user: </h2>
-    <%= link_to 'Follow', follows_path(following_id: @acc.id), method: :post %>
+    <button> <%= link_to 'Follow', follows_path(following_id: @acc.id), method: :post %> </button>
   <% else %>
     <h2> You can unfollow this user: </h2>
-    <%= link_to 'Unfollow', follow_path(following_id: @acc.id), method: :delete %>
+    <button> <%= link_to 'Unfollow', follow_path(following_id: @acc.id), method: :delete %> </button>
   <% end %>
 <% end %>
