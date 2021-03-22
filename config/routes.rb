@@ -24,5 +24,5 @@ Rails.application.routes.draw do
   get 'help' => 'public#help'
   get 'about' => 'public#about'
   get 'contact' => 'public#contact'
-  get 'list' => 'public#list'
+  get 'people' => 'public#people'
 end

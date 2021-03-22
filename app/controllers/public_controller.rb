@@ -10,7 +10,7 @@ class PublicController < ApplicationController
 
   def contact; end
 
-  def list
+  def people
     @accounts = Account.all
   end
 end
