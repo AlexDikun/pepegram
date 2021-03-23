@@ -17,6 +17,7 @@ class ImageUploader < Shrine
   Attacher.derivatives do |original|
     magick = ImageProcessing::MiniMagick.source(original)
     {
+      ava: magick.resize_to_limit!(100, 100),
       medium: magick.resize_to_limit!(500, 500),
     }
   end

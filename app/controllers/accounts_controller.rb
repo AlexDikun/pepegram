@@ -13,6 +13,10 @@ class AccountsController < ApplicationController
   def update
     @acc = Account.find(params[:id])
     if @acc.update(account_update_params)
+      if @acc.avatar.exists?
+        @acc.avatar_derivatives!
+        @acc.save
+      end
       redirect_to account_path(@acc)
     else
       render :edit

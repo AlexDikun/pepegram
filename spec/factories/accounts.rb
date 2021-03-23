@@ -7,5 +7,6 @@ FactoryBot.define do
     bio { FFaker::Job.title }
     password { 'password1' }
     password_confirmation { 'password1' }
+    avatar { Rack::Test::UploadedFile.new(Rails.root.join('public/placeholders/frogg.jpeg')) }
   end
 end

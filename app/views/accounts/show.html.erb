@@ -1,12 +1,8 @@
 <div class="center jumbotron">
-<h1> <%= @acc.username %> | Profile</h1>
-<!--Name: <%= @acc.username %>-->
-<br>
+<h1> <img src="<%= @acc.avatar_url(:ava) %>" class="img-circle"> <%= @acc.username %> | Profile</h1>
 Email: <%= @acc.email %>
 <br>
 Bio: <%= @acc.bio %>
-<br><br>
-<img src="<%= @acc.avatar_url %>" class="img-circle">
 <br><br>
 <button> <%= link_to('Update profile', edit_account_path(@acc)) %> </button>
 <button> <%= link_to('Feed', feed_posts_path) %> </button>
