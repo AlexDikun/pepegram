@@ -38,8 +38,13 @@ class PostsController < ApplicationController
   def update
     @post = @acc.posts.find(params[:id])
     authorize @post
-    @post.update(post_params)
-    redirect_to account_post_path(@acc, @post), flash: { success: 'Post was updated' }
+    if @post.update(post_params)
+      @post.image_derivatives! if @post.valid?
+      @post.save
+      redirect_to account_post_path(@acc, @post), flash: { success: 'Post was updated' }
+    else
+      render :edit
+    end
   end
 
   def destroy
