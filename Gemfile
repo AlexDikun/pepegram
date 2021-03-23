@@ -42,8 +42,9 @@ group :test do
   gem 'database_cleaner-redis'
   gem 'factory_bot', '~> 4.8', '>= 4.8.2'
   gem 'ffaker', '~> 2.17'
-  gem 'shoulda-matchers', '~> 4.3'
   gem 'selenium-webdriver'
+  gem 'shoulda-matchers', '~> 4.3'
+  gem 'simplecov', '~> 0.21.2', require: false
   gem 'webdrivers'
 end
 
