@@ -9,7 +9,7 @@ RSpec.describe FollowersController, type: :controller do
   before { sign_in user1 }
 
   let(:user2)  { create :account }
-  let!(:follow) { Follow.create(follower: user2, following: user1) }
+  let!(:follow) {create :follow, follower: user2, following: user1 }
 
   describe 'index' do
     subject { get :index, params: params }
