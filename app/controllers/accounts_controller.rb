@@ -13,7 +13,7 @@ class AccountsController < ApplicationController
   def update
     @acc = Account.find(params[:id])
     if @acc.update(account_update_params)
-      if @acc.avatar.exists?
+      if @acc.avatar
         @acc.avatar_derivatives!
         @acc.save
       end
