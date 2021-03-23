@@ -13,6 +13,10 @@ class AccountsController < ApplicationController
   def update
     @acc = Account.find(params[:id])
     if @acc.update(account_update_params)
+      if @acc.avatar
+        @acc.avatar_derivatives!
+        @acc.save
+      end
       redirect_to account_path(@acc)
     else
       render :edit
@@ -22,6 +26,6 @@ class AccountsController < ApplicationController
   private
 
   def account_update_params
-    params.require(:account).permit(:username)
+    params.require(:account).permit(:username, :bio, :avatar)
   end
 end

@@ -2,6 +2,8 @@
 # frozen_string_literal: true
 
 class PublicController < ApplicationController
+  before_action :authenticate_account!, only: :people
+
   def home; end
 
   def help; end
@@ -9,4 +11,8 @@ class PublicController < ApplicationController
   def about; end
 
   def contact; end
+
+  def people
+    @accounts = Account.all
+  end
 end

@@ -18,6 +18,16 @@
     <%= form.text_field :username %>
   </div>
 
+  <div class="field">
+    <%= form.label :bio %><br />
+    <%= form.text_area :bio %>
+  </div>
+
+  <div class="field">
+    <%= form.hidden_field :avatar, value: @acc.cached_avatar_data %>
+    <%= form.file_field :avatar %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
