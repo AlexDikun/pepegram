@@ -1,4 +1,4 @@
-# app/policies/posts_policy.rb
+# app/policies/post_policy.rb
 
 class PostPolicy
   attr_reader :account, :post
