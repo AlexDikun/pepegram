@@ -30,16 +30,19 @@ Likes: <%= @post.likes.count %>
   <%= link_to 'Destroy', account_post_path(@acc, @post), method: :delete, data: { confirm: "You are sure?"}, class: "btn btn-warning"%>
 <% end %>
 <%= link_to 'Back', account_posts_path(@acc), class: "btn btn-dark" %>
+</div>
 <br>
 
 <% @post.comments.each do |comment| %>
-  <br><br>
-  <%= link_to "#{comment.account.username}", account_path(comment.account) %>:
-  <%= comment.message %>
-  <% if policy(comment).destroy? %>
-    <%= link_to 'delete', post_comment_path(@post, comment), method: :delete, class: "btn btn-warning" %>
-  <% end %>
+  <div class="center jumbotron">
+    <%= link_to "#{comment.account.username}", account_path(comment.account) %>:
+    <%= comment.message %>
+    <% if policy(comment).destroy? %>
+      <%= link_to 'delete', post_comment_path(@post, comment), method: :delete, class: "btn btn-warning" %>
+    <% end %>
+  </div>
 <% end %>
 
-<br><br>
+<div class="center jumbotron">
 <%= link_to 'add comment', new_post_comment_path(@post), class: "btn btn-success" %>
+</div>
