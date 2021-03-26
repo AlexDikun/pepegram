@@ -4,6 +4,10 @@
 class LikesController < ApplicationController
   before_action :load_post
 
+  def index
+    @likes = @post.likes
+  end
+
   def create
     if no_like?
       @post.likes.create(account_id: current_account.id)

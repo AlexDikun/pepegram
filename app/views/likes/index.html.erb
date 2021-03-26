@@ -1,0 +1,14 @@
+<h1>List of those who liked the post: <%= @post.title %> </h1>
+
+<u>
+  <% @likes.each do |like| %>
+    <h3 class="center jumbotron">
+      <%= link_to(like.account.username, account_path(like.account)) %>
+      <%= like.account.email %>
+    </h3>
+  <% end %>
+</u>
+
+<div class="center jumbotron">
+  <%= link_to 'Back', account_post_path(@post.account, @post), class: "btn btn-info" %>
+</div>

@@ -7,6 +7,20 @@ RSpec.describe LikesController, type: :controller do
   let(:account) { create :account }
   let(:post) { create :post, account: account }
 
+  describe 'index' do
+    let!(:like) {create :like, account: account, post: post }
+    let(:params) { { post_id: post } }
+
+    subject { get :index, params: params }
+
+    it 'assigns @likes' do
+      subject
+      expect(assigns(:likes)).to eq([like])
+    end
+
+    it { is_expected.to render_template('index') }
+  end
+
   describe 'create' do
     let(:params) { { post_id: post, account_id: account } }
 

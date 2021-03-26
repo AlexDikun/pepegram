@@ -19,6 +19,8 @@ RSpec.describe AccountsController, type: :controller do
   end
 
   describe 'edit' do
+    before { sign_in user }
+
     subject { process :edit, method: :get, params: params }
 
     it { is_expected.to render_template(:edit) }
@@ -32,6 +34,8 @@ RSpec.describe AccountsController, type: :controller do
   describe 'update' do
     let!(:user) { create :account }
     let(:params) { { id: user.id, account: { username: 'Navalny' } } }
+
+    before { sign_in user }
 
     subject { process :update, method: :put, params: params }
 
