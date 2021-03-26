@@ -9,15 +9,19 @@
       <img src="<%= post.image_url(:medium) %>" class="img-rounded">
       <br>
       <br>
-      <button type="submit"><%= link_to 'Show', account_post_path(@acc, post)%></button>
+      <%= link_to 'Show', account_post_path(@acc, post), class: "btn btn-success" %>
       <% if policy(post).update? %>
-        <button type="submit"><%= link_to 'Edit', edit_account_post_path(@acc, post)%></button>
+        <%= link_to 'Edit', edit_account_post_path(@acc, post), class: "btn btn-info"%>
       <% end %>
-      <button type="submit">
-        <% if policy(post).destroy? %>
-          <%= link_to 'Destroy', account_post_path(@acc, post), method: :delete, data: { confirm: "You are sure?"}%>
-        <% end %>
-      </button>
+      <% pre_like = post.likes.find {| like | like.account_id == current_account.id} %>
+      <% if pre_like %>
+        <%= link_to 'Unlike', post_like_path(post, pre_like), method: :delete, class: "btn btn-danger" %>
+      <% else %>
+        <%= link_to 'Like', post_likes_path(post), method: :post, class: "btn btn-danger"  %>
+      <% end %>
+      <% if policy(post).destroy? %>
+        <%= link_to 'Destroy', account_post_path(@acc, post), method: :delete, data: { confirm: "You are sure?"}, class: "btn btn-warning"%>
+      <% end %>
       <br>
   </form>
   <br>
@@ -25,7 +29,7 @@
 
 <% if current_account == @acc %>
   <button class="img-responsive center-block" type="submit">
-    <%= link_to 'New Post', new_account_post_path(@acc)%>
+    <%= link_to 'New Post', new_account_post_path(@acc), class: "btn btn-success"%>
     <br>
   </button>
 <% end %>
