@@ -8,7 +8,7 @@ Bio: <%= @acc.bio %>
 <table style="margin:0 auto">
   <col span="3" align="center">
     <tr>
-      <% if current_account.present? && current_account == @acc %>
+      <% if policy(@acc).update?  %>
         <td> <%= link_to 'Update profile', edit_account_path(@acc), class: "btn btn-primary"%> </td>
       <% else %>
         <td> </td>
