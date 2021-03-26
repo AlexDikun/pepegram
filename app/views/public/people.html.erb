@@ -1,6 +1,6 @@
 <% @accounts.each do |acc| %>
   <form class="center jumbotron">
-    <legend><%= acc.username %></legend>
-    <button type='submit'> <%= link_to 'Check', (account_path(acc)) %> </button>
+    <legend> <%= acc.username %> </legend>
+    <%= link_to 'Check', (account_path(acc)), class: "btn btn-info"  %>
   </form>
 <% end %>

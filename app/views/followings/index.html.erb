@@ -2,8 +2,9 @@
 
 <u>
   <% @followings.each do |following| %>
-    <li>
-      <%= link_to(following.email, account_path(following)) %>
-    </li>
+    <h3 class="center jumbotron">
+      <%= link_to(following.username, account_path(following)) %>
+      <%= following.email %>
+    </h3>
   <% end %>
 </u>
