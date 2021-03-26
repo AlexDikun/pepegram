@@ -26,7 +26,9 @@
   <%= link_to 'Like', post_likes_path(@post), method: :post, class: "btn btn-danger"  %>
 <% end %>
 Likes: <%= @post.likes.count %>
-
+<% if policy(@post).destroy? %>
+  <%= link_to 'Destroy', account_post_path(@acc, @post), method: :delete, data: { confirm: "You are sure?"}, class: "btn btn-warning"%>
+<% end %>
 <%= link_to 'Back', account_posts_path(@acc), class: "btn btn-dark" %>
 <br>
 
