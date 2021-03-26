@@ -1,6 +1,10 @@
 
 <p id="notice"><%=notice%></p>
-<h1>Your posts, <%= @acc.username %></h1>
+<% if request.path == '/feed_posts' %>
+  <h1>Your feed, <%= @acc.username %></h1>
+<% else %>
+  <h1>Your posts, <%= @acc.username %></h1>
+<% end %>
 
 <%@posts.each do |post| %>
   <form class="center jumbotron">
@@ -27,9 +31,9 @@
   <br>
 <% end %>
 
-<% if current_account == @acc %>
-  <button class="img-responsive center-block" type="submit">
-    <%= link_to 'New Post', new_account_post_path(@acc), class: "btn btn-success"%>
-    <br>
-  </button>
+<% if (current_account == @acc and request.path != '/feed_posts') %>
+  <div class="center jumbotron">
+    <%= link_to 'New Post', new_account_post_path(@acc), class:"btn btn-success" %>
+  </div>
+  <br>
 <% end %>
