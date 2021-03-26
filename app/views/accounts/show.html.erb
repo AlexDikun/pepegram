@@ -8,7 +8,11 @@ Bio: <%= @acc.bio %>
 <table style="margin:0 auto">
   <col span="3" align="center">
     <tr>
-      <td> <%= link_to 'Update profile', edit_account_path(@acc), class: "btn btn-primary"%> </td>
+      <% if policy(@acc).update?  %>
+        <td> <%= link_to 'Update profile', edit_account_path(@acc), class: "btn btn-primary"%> </td>
+      <% else %>
+        <td> </td>
+      <% end %>
       <td> <%= link_to 'Feed', feed_posts_path, class: "btn btn-success" %> </td>
       <td> <%= link_to 'Publications', account_posts_path(@acc), class: "btn btn-primary"%> </td>
       <td> <%= link_to 'Followers', account_followers_path(@acc), class: "btn btn-success" %> </td>

@@ -2,16 +2,20 @@
 # frozen_string_literal: true
 
 class AccountsController < ApplicationController
+  include Pundit
+
   def show
     @acc = Account.find(params[:id])
   end
 
   def edit
     @acc = Account.find(params[:id])
+    authorize @acc
   end
 
   def update
     @acc = Account.find(params[:id])
+    authorize @acc
     if @acc.update(account_update_params)
       if @acc.avatar
         @acc.avatar_derivatives!
@@ -27,5 +31,9 @@ class AccountsController < ApplicationController
 
   def account_update_params
     params.require(:account).permit(:username, :bio, :avatar)
+  end
+
+  def pundit_user
+    current_account
   end
 end
