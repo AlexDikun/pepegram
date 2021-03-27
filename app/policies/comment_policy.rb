@@ -10,6 +10,6 @@ class CommentPolicy
   end
 
   def destroy?
-    (@comment.account || @post.account) == @acc
+    (@comment.account == @acc) or (@post.account == @acc)
   end
 end
