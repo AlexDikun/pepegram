@@ -17,7 +17,7 @@ RSpec.describe FollowsController, type: :controller do
 
     it 'create follow' do
       expect { subject }.to change { Follow.count }.by(1)
-      is_expected.to redirect_to(account_posts_path(assigns(:following_acc)))
+      is_expected.to redirect_to(account_path(assigns(:following_acc)))
     end
   end
 
