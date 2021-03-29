@@ -17,12 +17,12 @@ RSpec.describe FollowsController, type: :controller do
 
     it 'create follow' do
       expect { subject }.to change { Follow.count }.by(1)
-      is_expected.to redirect_to(account_posts_path(assigns(:following_acc)))
+      is_expected.to redirect_to(account_path(assigns(:following_acc)))
     end
   end
 
   describe 'destroy' do
-    let!(:follow) {create :follow, follower: first_user, following: second_user}
+    let!(:follow) { create :follow, follower: first_user, following: second_user }
     let(:params) { { following_id: second_user.id, id: follow.id } }
 
     subject { delete :destroy, params: params }

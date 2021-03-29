@@ -1,10 +1,9 @@
 # app/uploaders/image_uploader.rb
 # frozen_string_literal: true
 
+require 'image_processing/mini_magick'
+
 # top-level class documentation comment
-
-require "image_processing/mini_magick"
-
 class ImageUploader < Shrine
   plugin :default_url
   plugin :validation_helpers
@@ -18,7 +17,7 @@ class ImageUploader < Shrine
     magick = ImageProcessing::MiniMagick.source(original)
     {
       ava: magick.resize_to_limit!(100, 100),
-      medium: magick.resize_to_limit!(500, 500),
+      medium: magick.resize_to_limit!(500, 500)
     }
   end
 end

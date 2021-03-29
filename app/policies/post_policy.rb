@@ -1,5 +1,7 @@
 # app/policies/post_policy.rb
+# frozen_string_literal: true
 
+# top-level class documentation comment
 class PostPolicy
   attr_reader :account, :post
 

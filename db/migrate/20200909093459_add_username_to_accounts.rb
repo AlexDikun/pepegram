@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# top-level class documentation comment
+# add the username column to the accounts table
 class AddUsernameToAccounts < ActiveRecord::Migration[6.0]
   def change
     add_column :accounts, :username, :string

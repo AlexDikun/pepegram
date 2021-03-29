@@ -1,5 +1,8 @@
-<div class="center jumbotron"
-<h1>New Post</h1>
+<div class='center jumbotron'>
+  <h3>New Post</h3>
+</div>
 
 <%= render 'form', post: @post %>
-<%= link_to 'Back', account_posts_path(@acc) %>
+<div class='center jumbotron'>
+  <%= link_to 'Back', account_posts_path(@acc), class: 'btn btn-warning' %>
+</div>

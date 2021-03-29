@@ -1,5 +1,7 @@
 # app/policies/account_policy.rb
+# frozen_string_literal: true
 
+# top-level class documentation comment
 class AccountPolicy
   attr_reader :current_account, :account
 

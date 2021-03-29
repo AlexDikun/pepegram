@@ -1,6 +1,7 @@
 # app/controllers/likes_controller.rb
 # frozen_string_literal: true
 
+# class describing the likes controller
 class LikesController < ApplicationController
   before_action :load_post
 
@@ -9,10 +10,10 @@ class LikesController < ApplicationController
   end
 
   def create
-    if no_like?
-      @post.likes.create(account_id: current_account.id)
-      redirect_to account_post_path(@post.account, @post)
-    end
+    return unless no_like?
+
+    @post.likes.create(account_id: current_account.id)
+    redirect_to account_post_path(@post.account, @post)
   end
 
   def destroy
