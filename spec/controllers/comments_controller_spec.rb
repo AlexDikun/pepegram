@@ -51,12 +51,12 @@ RSpec.describe CommentsController, type: :controller do
       end
 
       it { is_expected.to render_template(:new) }
-      it { expect { subject }.not_to change { Comment.count } }
+      it { expect { subject }.not_to(change { Comment.count }) }
     end
   end
 
   describe 'destroy' do
-    let!(:comment) { create :comment, account: first_user, post: post}
+    let!(:comment) { create :comment, account: first_user, post: post }
     let(:params) { { post_id: post.id, id: comment.id } }
 
     subject { delete :destroy, params: params }

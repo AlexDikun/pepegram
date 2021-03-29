@@ -4,12 +4,12 @@
 require 'rails_helper'
 
 RSpec.describe FollowersController, type: :controller do
-  let(:user1)  { create :account }
+  let(:user1) { create :account }
   let(:params) { { account_id: user1 } }
   before { sign_in user1 }
 
-  let(:user2)  { create :account }
-  let!(:follow) {create :follow, follower: user2, following: user1 }
+  let(:user2) { create :account }
+  let!(:follow) { create :follow, follower: user2, following: user1 }
 
   describe 'index' do
     subject { get :index, params: params }

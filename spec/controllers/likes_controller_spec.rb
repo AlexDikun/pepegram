@@ -8,7 +8,7 @@ RSpec.describe LikesController, type: :controller do
   let(:post) { create :post, account: account }
 
   describe 'index' do
-    let!(:like) {create :like, account: account, post: post }
+    let!(:like) { create :like, account: account, post: post }
     let(:params) { { post_id: post } }
 
     subject { get :index, params: params }
@@ -37,7 +37,7 @@ RSpec.describe LikesController, type: :controller do
   end
 
   describe 'destroy' do
-    let!(:like) {create :like, account: account, post: post }
+    let!(:like) { create :like, account: account, post: post }
     let(:params) { { post_id: post, id: like } }
 
     subject { delete :destroy, params: params }

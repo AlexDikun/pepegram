@@ -51,7 +51,7 @@ RSpec.describe AccountsController, type: :controller do
       it { is_expected.to render_template(:edit) }
 
       it 'does not update account' do
-        expect { subject }.not_to change { user.reload.username }
+        expect { subject }.not_to(change { user.reload.username })
       end
     end
   end
