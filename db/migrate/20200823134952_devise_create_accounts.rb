@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# top-level class documentation comment
+# migration using device resources
 class DeviseCreateAccounts < ActiveRecord::Migration[6.0]
   def change
     create_table :accounts do |t|

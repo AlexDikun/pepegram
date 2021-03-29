@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# top-level class documentation comment
+# create a follow table and add foreign keys
 class CreateFollows < ActiveRecord::Migration[6.0]
   def change
     create_table :follows do |t|

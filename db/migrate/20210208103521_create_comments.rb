@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# top-level class documentation comment
+# add the comments table to the database
 class CreateComments < ActiveRecord::Migration[6.0]
   def change
     create_table :comments do |t|
