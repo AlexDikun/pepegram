@@ -9,7 +9,7 @@ class DeviseCreateAccounts < ActiveRecord::Migration[6.0]
       t.string :encrypted_password, null: false, default: ''
     end
 
-    add_index :accounts, :email,                unique: true
+    add_index :accounts, :email, unique: true
   end
 
   def self.down

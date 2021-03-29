@@ -1,6 +1,7 @@
 # lib/tasks/kill_postgres_connections.rake
+# frozen_string_literal: true
 
-task :kill_postgres_connections => :environment do
+task kill_postgres_connections: :environment do
   db_name = "#{File.basename(Rails.root)}_#{Rails.env}"
   sh = <<EOF
 ps xa \
@@ -13,4 +14,4 @@ EOF
   puts `#{sh}`
 end
 
-task "db:drop" => :kill_postgres_connections
+task 'db:drop' => :kill_postgres_connections
