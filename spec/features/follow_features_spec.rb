@@ -7,7 +7,7 @@ RSpec.describe 'Follow features', :js, type: :feature do
   let(:first_account) { create :account }
   let(:second_account) { create :account }
 
- scenario 'user is testing post functionality' do
+ scenario 'user is testing follow functionality' do
    login_as first_account
    visit account_path(id: second_account)
    visit account_followers_path(account_id: second_account)
