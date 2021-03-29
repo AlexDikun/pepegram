@@ -1,6 +1,7 @@
 # app/controllers/application_controller.rb
 # frozen_string_literal: true
 
+# class describing the application controller
 class ApplicationController < ActionController::Base
   # for signed up successfully:
   before_action :configure_permitted_parameters, if: :devise_controller?
@@ -12,7 +13,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :bio, :avatar])
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[username bio avatar])
   end
 
   private

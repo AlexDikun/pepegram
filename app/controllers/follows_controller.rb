@@ -1,6 +1,7 @@
 # app/controllers/follows_controller.rb
 # frozen_string_literal: true
 
+# class describing the follows controller
 class FollowsController < ApplicationController
   before_action :authenticate_account!
 

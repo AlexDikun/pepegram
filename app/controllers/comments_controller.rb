@@ -1,6 +1,7 @@
 # app/controllers/comments_controller.rb
 # frozen_string_literal: true
 
+# class describing the comments controller
 class CommentsController < ApplicationController
   before_action :authenticate_account!, only: %i[new create destroy]
   before_action :load_post

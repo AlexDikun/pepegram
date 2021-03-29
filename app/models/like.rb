@@ -1,3 +1,7 @@
+# app/models/like.rb
+# frozen_string_literal: true
+
+# class describing the like model
 class Like < ApplicationRecord
   belongs_to :post
   belongs_to :account

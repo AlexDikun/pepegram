@@ -1,6 +1,7 @@
 # app/controllers/public_controller.rb
 # frozen_string_literal: true
 
+# class describing the public controller
 class PublicController < ApplicationController
   before_action :authenticate_account!, only: :people
 

@@ -1,6 +1,7 @@
 # app/controllers/accounts_controller.rb
 # frozen_string_literal: true
 
+# class describing the acconuts controller
 class AccountsController < ApplicationController
   include Pundit
 

@@ -1,5 +1,7 @@
 # app/policies/comment_policy.rb
+# frozen_string_literal: true
 
+# top-level class documentation comment
 class CommentPolicy
   attr_reader :account, :comment
 
