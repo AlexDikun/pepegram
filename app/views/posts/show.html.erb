@@ -34,11 +34,12 @@
 <br>
 
 <% @post.comments.each do |comment| %>
-  <div class="center jumbotron">
+  <div class="center jumbotron comments">
     <%= link_to "#{comment.account.username}", account_path(comment.account) %>:
-    <%= comment.message %>
+    <span class="message"> <%= comment.message %><br></span>
+    <span class="timestamp"> Added <%= time_ago_in_words(comment.created_at) %>. </span>
     <% if policy(comment).destroy? %>
-      <%= link_to 'delete', post_comment_path(@post, comment), method: :delete, class: "btn btn-warning" %>
+      <%= link_to 'delete', post_comment_path(@post, comment), method: :delete %>
     <% end %>
   </div>
 <% end %>
