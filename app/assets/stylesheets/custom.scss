@@ -8,62 +8,100 @@
 $gray-medium-light: #eaeaea;
 
 body {
-padding-top: 60px;
+  padding-top: 60px;
 }
 
 section {
-overflow: auto;
+  overflow: auto;
 }
 
 textarea {
-resize: vertical;
+  resize: vertical;
 }
 
 .center {
-text-align: center;
-h1 {
-margin-bottom: 10px;
-}
+  text-align: center;
+  h1 {
+    margin-bottom: 10px;
+  }
 }
 
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
-line-height: 1;
+  line-height: 1;
 }
 
 h1 {
-font-size: 3em;
-letter-spacing: -2px;
-margin-bottom: 30px;
-text-align: center;
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
 }
 
 h2 {
-font-size: 1.2em;
-letter-spacing: -1px;
-margin-bottom: 30px;
-text-align: center;
-font-weight: normal;
-color: green;
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: green;
 }
 
 /* header */
 
 #logo {
-float: left;
-margin-right: 10px;
-font-size: 1.7em;
-color: white;
-text-transform: uppercase;
-letter-spacing: -1px;
-padding-top: 9px;
-font-weight: bold;
-&:hover {
-color: white;
-text-decoration: none;
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
 }
+
+.accounts {
+  .email {
+    .email_title {
+      font-weight: bold;
+      font-style: normal;
+      color: black;
+    }
+    font-family: Courier New;
+    color: $gray-light;
+  }
+  .bio {
+    .bio_title {
+      font-weight: bold;
+      font-style: normal;
+      color: black;
+    }
+    font-family: Courier New;
+    color: $gray-light;
+    font-style: italic;
+    word-wrap: break-word;
+  }
 }
+
+.comments {
+  .message {
+    font-weight: bold;
+    word-wrap: break-word;
+  }
+  .timestamp {
+    color: $gray-light;
+  }
+}
+
+.words {
+  word-wrap: break-word;
+}
+
 
 /* цвет фона и рамки навигационного меню
 .navbar-inverse {

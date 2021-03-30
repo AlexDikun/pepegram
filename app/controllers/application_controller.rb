@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def after_sign_in_path_for(account)
-    account_posts_path(account)
+    account_path(account)
   end
 
   protected
