@@ -65,6 +65,29 @@ h2 {
   }
 }
 
+.accounts {
+  .email {
+    .email_title {
+      font-weight: bold;
+      font-style: normal;
+      color: black;
+    }
+    font-family: Courier New;
+    color: $gray-light;
+  }
+  .bio {
+    .bio_title {
+      font-weight: bold;
+      font-style: normal;
+      color: black;
+    }
+    font-family: Courier New;
+    color: $gray-light;
+    font-style: italic;
+    word-wrap: break-word;
+  }
+}
+
 .comments {
   .message {
     font-weight: bold;
