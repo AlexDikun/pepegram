@@ -21,7 +21,7 @@ class ImageUploader < Shrine
     }
   end
 
-  Attacher.default_url do |**options|
+  Attacher.default_url do
     '/placeholders/pepeinst_ava.jpg'
   end
 end
