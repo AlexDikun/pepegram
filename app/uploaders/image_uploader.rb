@@ -20,4 +20,8 @@ class ImageUploader < Shrine
       medium: magick.resize_to_limit!(500, 500)
     }
   end
+
+  Attacher.default_url do |**options|
+    "/placeholders/pepeinst_ava.jpg"
+  end
 end

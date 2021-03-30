@@ -1,5 +1,5 @@
 <div class="center jumbotron accounts">
-<h1> <img src="<%= @acc.avatar_url(:ava) %>" class="img-circle"> <%= @acc.username %> | Profile</h1>
+<h1> <img src="<%= @acc.avatar_url(:ava) || @acc.avatar_url %>" class="img-circle"> <%= @acc.username %> | Profile</h1>
 
 <span class="email">
   <span class="email_title"> Email: </span>
