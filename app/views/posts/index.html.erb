@@ -8,8 +8,8 @@
 
 <%@posts.each do |post| %>
   <form class="center jumbotron">
-    <legend><%= post.title %></legend>
-      <span class="help-block"><%= post.message %></span>
+    <legend class="words"> <%= post.title %></legend>
+      <span class="help-block words"> <%= post.message %> </span>
       <img src="<%= post.image_url(:medium) %>" class="img-rounded">
       <br>
       <br>
