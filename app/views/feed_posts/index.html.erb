@@ -1,0 +1,30 @@
+
+<p id="notice"><%=notice%></p>
+
+<h1 class="center jumbotron"> <%= @acc.username %>'s news feed </h1>
+
+<%@posts.each do |post| %>
+  <h4> <%= link_to post.account.username.to_s, account_path(post.account) %> posted: </h4>
+
+  <form class="center jumbotron posts">
+    <legend class="words"> <%= post.title %></legend>
+      <span class="help-block words"> <%= post.message %> </span>
+      <img src="<%= post.image_url(:medium) %>" class="img-rounded">
+      <br>
+      <br>
+      <%= link_to 'Show', account_post_path(post.account, post), class: "btn btn-success" %>
+      <% pre_like = post.likes.find {| like | like.account_id == current_account.id} %>
+      <% if pre_like %>
+        <%= link_to 'Unlike', post_like_path(post, pre_like), method: :delete, class: "btn btn-danger" %>
+      <% else %>
+        <%= link_to 'Like', post_likes_path(post), method: :post, class: "btn btn-danger"  %>
+      <% end %>
+      <br><br>
+      <span class="notes"> Comments left: <%= post.comments.count %> </span>
+  </form>
+  <br>
+<% end %>
+
+<div class="center jumbotron">
+  <%= link_to 'Back', account_path(@acc), class: 'btn btn-info' %>
+</div>

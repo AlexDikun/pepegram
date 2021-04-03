@@ -98,6 +98,15 @@ h2 {
   }
 }
 
+.posts {
+  .notes{
+    font-family: Courier New;
+    font-style: italic;
+    color: $gray-light;
+    font-size: x-small;
+  }
+}
+
 .words {
   word-wrap: break-word;
 }
