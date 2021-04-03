@@ -1,7 +1,7 @@
 
 <p id="notice"><%=notice%></p>
 
-<h1 class="center jumbotron"> <%= @acc.username %>'s news feed </h1>
+<h1 class="center jumbotron"> <%= @acc.username %> | Feed </h1>
 
 <%@posts.each do |post| %>
   <h4> <%= link_to post.account.username.to_s, account_path(post.account) %> posted: </h4>

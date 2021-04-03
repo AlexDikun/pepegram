@@ -28,6 +28,6 @@ RSpec.describe 'Post features', :js, type: :feature do
     click_link 'Destroy'
     accept_confirm 'You are sure?'
 
-    expect(page).to have_content("#{account.username}'s posts")
+    expect(page).to have_content("#{account.username}| posts")
   end
 end
