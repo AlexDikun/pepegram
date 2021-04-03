@@ -22,7 +22,11 @@
       <% else %>
         <td> </td>
       <% end %>
-      <td> <%= link_to 'Feed', feed_posts_path, class: "btn btn-success" %> </td>
+      <% if @acc == current_account %>
+        <td> <%= link_to 'Feed', feed_posts_path, class: "btn btn-success"%> </td>
+      <% else %>
+        <td> </td>
+      <% end %>
       <td> <%= link_to 'Publications', account_posts_path(@acc), class: "btn btn-primary"%> </td>
       <td> <%= link_to 'Followers', account_followers_path(@acc), class: "btn btn-success" %> </td>
       <td> <%= link_to 'Followings', account_followings_path(@acc), class: "btn btn-primary" %> </td>
