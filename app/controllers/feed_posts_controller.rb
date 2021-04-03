@@ -12,7 +12,5 @@ class FeedPostsController < ApplicationController
              else
                Post.none
              end
-
-    render 'posts/index'
   end
 end
