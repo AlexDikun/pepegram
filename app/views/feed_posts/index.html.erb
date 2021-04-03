@@ -6,7 +6,7 @@
 <%@posts.each do |post| %>
   <h4> <%= link_to post.account.username.to_s, account_path(post.account) %> posted: </h4>
 
-  <form class="center jumbotron posts">
+  <form class="center jumbotron feed">
     <legend class="words"> <%= post.title %></legend>
       <span class="help-block words"> <%= post.message %> </span>
       <img src="<%= post.image_url(:medium) %>" class="img-rounded">
