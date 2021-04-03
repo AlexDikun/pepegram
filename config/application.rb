@@ -21,5 +21,8 @@ module Pepegram
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+
+    # for images to be copied to public when compiling assets:
+    config.assets.precompile += %w(*.png *.jpg *.jpeg *.webp)
   end
 end
