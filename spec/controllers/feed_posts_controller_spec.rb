@@ -8,7 +8,7 @@ RSpec.describe FeedPostsController, type: :controller do
   let(:user2) { create :account }
   let(:params) { { account_id: user2 } }
 
-  let!(:follow) { Follow.create(follower: user1, following: user2) }
+  let!(:follow) { create :follow, follower: user1, following: user2 }
 
   before { sign_in user1 }
 
