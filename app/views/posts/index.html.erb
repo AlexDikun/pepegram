@@ -10,25 +10,27 @@
     <img src="<%= post.image_url(:medium) %>" class="img-rounded">
     <br>
     <br>
-    <%= link_to 'Show', account_post_path(@acc, post), class: "btn btn-success" %>
-    <% if policy(post).update? %>
-      <%= link_to 'Edit', edit_account_post_path(@acc, post), class: "btn btn-info"%>
-    <% end %>
-    <% pre_like = post.likes.find {| like | like.account_id == current_account.id} %>
-    <% if pre_like %>
-      <%= link_to 'Unlike', post_like_path(post, pre_like), method: :delete, class: "btn btn-danger" %>
-    <% else %>
-      <%= link_to 'Like', post_likes_path(post), method: :post, class: "btn btn-danger"  %>
-    <% end %>
-    <% if policy(post).destroy? %>
-      <%= link_to 'Destroy', account_post_path(@acc, post), method: :delete, data: { confirm: "You are sure?"}, class: "btn btn-warning"%>
+    <% if current_account.present? %>
+      <%= link_to 'Show', account_post_path(@acc, post), class: "btn btn-success" %>
+      <% if policy(post).update? %>
+        <%= link_to 'Edit', edit_account_post_path(@acc, post), class: "btn btn-info"%>
+      <% end %>
+      <% pre_like = post.likes.find {| like | like.account_id == current_account.id} %>
+      <% if pre_like %>
+        <%= link_to 'Unlike', post_like_path(post, pre_like), method: :delete, class: "btn btn-danger" %>
+      <% else %>
+        <%= link_to 'Like', post_likes_path(post), method: :post, class: "btn btn-danger"  %>
+      <% end %>
+      <% if policy(post).destroy? %>
+        <%= link_to 'Destroy', account_post_path(@acc, post), method: :delete, data: { confirm: "You are sure?"}, class: "btn btn-warning"%>
+      <% end %>
     <% end %>
     <br>
   </form>
   <br>
 <% end %>
 
-<% if (current_account == @acc) %>
+<% if current_account.present? and (current_account == @acc) %>
   <div class="center jumbotron">
     <%= link_to 'New Post', new_account_post_path(@acc), class:"btn btn-success" %>
   </div>

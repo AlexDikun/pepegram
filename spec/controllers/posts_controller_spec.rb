@@ -7,7 +7,6 @@ RSpec.describe PostsController, type: :controller do
   let(:account) { create :account }
   let(:params) { { account_id: account } }
 
-  before { sign_in account }
 
   describe 'index' do
     subject { get :index, params: params }
@@ -21,6 +20,8 @@ RSpec.describe PostsController, type: :controller do
 
     it { is_expected.to render_template('index') }
   end
+
+  before { sign_in account }
 
   describe 'show' do
     let(:params) { { account_id: account.id, id: post } }

@@ -7,7 +7,6 @@ RSpec.describe PublicController, type: :controller do
   let(:account) { create :account }
 
   describe 'people' do
-    before { sign_in account }
 
     subject { get :people }
 
