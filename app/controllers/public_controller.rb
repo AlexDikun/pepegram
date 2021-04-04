@@ -3,7 +3,6 @@
 
 # class describing the public controller
 class PublicController < ApplicationController
-
   def home; end
 
   def help; end
