@@ -3,7 +3,7 @@
 
 # class describing the posts controller
 class PostsController < ApplicationController
-  before_action :authenticate_account!, only: %i[new create edit update destroy]
+  before_action :authenticate_account!, only: %i[show new create edit update destroy]
   before_action :load_account
 
   include Pundit

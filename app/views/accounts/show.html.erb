@@ -17,12 +17,12 @@
 <table style="margin:0 auto">
   <col span="3" align="center">
     <tr>
-      <% if policy(@acc).update?  %>
+      <% if current_account.present? and policy(@acc).update? %>
         <td> <%= link_to 'Update profile', edit_account_path(@acc), class: "btn btn-primary"%> </td>
       <% else %>
         <td> </td>
       <% end %>
-      <% if @acc == current_account %>
+      <% if current_account.present? and @acc == current_account %>
         <td> <%= link_to 'Feed', feed_posts_path, class: "btn btn-success"%> </td>
       <% else %>
         <td> </td>

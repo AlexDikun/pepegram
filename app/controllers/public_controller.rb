@@ -3,7 +3,6 @@
 
 # class describing the public controller
 class PublicController < ApplicationController
-  before_action :authenticate_account!, only: :people
 
   def home; end
 
