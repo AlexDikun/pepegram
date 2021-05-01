@@ -1,11 +1,13 @@
 # README
 
-Ruby on Rails Academy: instagram-clone application
+An instagram-clone educational app, written in Ruby on Rails.
 
-* Ruby version:
+Used:
+- Rails 6.0.3.2
+- ruby 2.7.1p83
+- psql (PostgreSQL) 12.6
+- RSpec 3.9
+- Bootstrap -v ~3
 
-  ruby 2.7.1p83 (2020-03-31 revision a0c7c23c9c) [x86_64-linux]
-
-* Using postgresql database 
-  
-  user Sasha, no password
+Heroku link:
+  https://intense-reaches-39227.herokuapp.com/
